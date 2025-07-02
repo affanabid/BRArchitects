@@ -392,30 +392,7 @@
                 <input type="text" name="comment" id="comment" placeholder="Comment">
                 <button class="submitButton" type="submit" name="submit">SEND MESSAGE</button>
 
-                <script>
-                    const scriptURL = 'https://script.google.com/macros/s/AKfycbyZA7GLKSsCa8PVa6OAdnhpTG86N-s8d04lVkqXI3UQPEyyGQF8IlwLq0nzzow5nhWP/exec';
-                  
-                    document.querySelector('.contactInput').addEventListener('submit', function (e) {
-                      e.preventDefault();
-                  
-                      const form = e.target;
-                      const formData = new FormData(form);
-                  
-                      fetch(scriptURL, {
-                        method: 'POST',
-                        body: formData
-                      })
-                      .then(response => response.text())
-                      .then(result => {
-                        alert("Message sent successfully!");
-                        form.reset();
-                      })
-                      .catch(error => {
-                        console.error('Error!', error.message);
-                        alert("There was a problem submitting your message.");
-                      });
-                    });
-                  </script>
+                
                   
                   
             </form>
@@ -426,6 +403,29 @@
         </div>
     </div>
 </body>
-
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxD-8FT81I-lgOe-qIaSR5yA69eCyt79FD2rwjlsUtqjxWMHGoiDBVKsrB93POLnMai/exec';
+  
+    document.querySelector('.contactInput').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      const form = e.target;
+      const formData = new FormData(form);
+  
+      fetch(scriptURL, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.text())
+      .then(result => {
+        alert("Message sent successfully!");
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        alert("There was a problem submitting your message.");
+      });
+    });
+  </script>
 
 </html>
